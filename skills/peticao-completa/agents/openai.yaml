@@ -1,0 +1,4 @@
+interface:
+  display_name: "Petição Completa"
+  short_description: "Petições jurídicas completas em DOCX"
+  default_prompt: "Use $peticao-completa para gerar uma petição completa em .docx a partir da pasta de documentos do caso."

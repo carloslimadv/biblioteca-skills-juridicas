@@ -1,0 +1,20 @@
+{
+  "name": "biblioteca-skills-juridicas",
+  "type": "module",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Biblioteca pública de skills jurídicas para Codex, Claude Code e outras LLMs compatíveis com SKILL.md.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.2"
+  },
+  "devDependencies": {}
+}

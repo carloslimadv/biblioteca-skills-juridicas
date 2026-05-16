@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tese Juridica Validator"
+  short_description: "Teste de solidez de teses e argumentos juridicos"
+  default_prompt: "Use $tese-juridica-validator para testar esta tese juridica e apontar fragilidades e vulnerabilidades."

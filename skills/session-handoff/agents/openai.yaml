@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff de Sessão"
+  short_description: "Gera handoff Markdown para retomar trabalho"
+  default_prompt: "Use $session-handoff para encerrar esta conversa com um documento Markdown autossuficiente para retomar o trabalho em outra sessão."

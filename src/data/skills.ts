@@ -1,0 +1,318 @@
+export type SkillCategory =
+  | 'peticoes'
+  | 'provas'
+  | 'contratos'
+  | 'jurisprudencia'
+  | 'marketing'
+  | 'documentos'
+  | 'produtividade'
+  | 'qa';
+
+export type SkillRisk = 'juridico' | 'documental' | 'operacional' | 'baixo';
+
+export type SkillItem = {
+  id: string;
+  folder: string;
+  name: string;
+  title: string;
+  category: SkillCategory;
+  categoryLabel: string;
+  risk: SkillRisk;
+  summary: string;
+  serves: string;
+  whenToUse: string[];
+  whenNotToUse: string[];
+  howItWorks: string[];
+  bestUse: string;
+  trigger: string;
+  installCommand: string;
+  codexPrompt: string;
+  claudePrompt: string;
+  limitations: string[];
+  files: string[];
+};
+
+export const repository = {
+  owner: 'carloslimadv',
+  name: 'biblioteca-skills-juridicas',
+  url: 'https://github.com/carloslimadv/biblioteca-skills-juridicas',
+  pagesUrl: 'https://carloslimadv.github.io/biblioteca-skills-juridicas/',
+};
+
+export const installCommands = {
+  codex: "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent codex --yes",
+  claude: "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code --yes",
+  list: 'npx skills add carloslimadv/biblioteca-skills-juridicas --list',
+};
+
+export const categories: Array<{ id: 'all' | SkillCategory; label: string; description: string }> = [
+  { id: 'all', label: 'Todas', description: 'Catálogo completo' },
+  { id: 'peticoes', label: 'Petições', description: 'Peças, autos e revisão' },
+  { id: 'provas', label: 'Provas', description: 'Documentos, lacunas e lastro' },
+  { id: 'contratos', label: 'Contratos', description: 'Risco contratual' },
+  { id: 'jurisprudencia', label: 'Jurisprudência', description: 'Pesquisa e validação' },
+  { id: 'marketing', label: 'Marketing', description: 'OAB, LGPD e conteúdo' },
+  { id: 'documentos', label: 'Documentos', description: 'PDF e arquivos' },
+  { id: 'produtividade', label: 'Produtividade', description: 'Handoff e descoberta' },
+  { id: 'qa', label: 'QA técnico', description: 'Browser e validação visual' },
+];
+
+const command = (skillName: string, agent = 'codex') =>
+  `npx skills add carloslimadv/biblioteca-skills-juridicas --skill ${skillName} --global --agent ${agent} --yes`;
+
+export const skills: SkillItem[] = [
+  {
+    id: 'peticao-completa',
+    folder: 'peticao-completa',
+    name: 'peticao-completa',
+    title: 'Petição Completa',
+    category: 'peticoes',
+    categoryLabel: 'Petições',
+    risk: 'juridico',
+    summary: 'Gera, adapta ou revisa petições brasileiras completas em DOCX, com leitura de documentos, estilo controlado e checagem final.',
+    serves: 'Transformar uma pasta de caso em minuta estruturada, com fatos, provas, fundamentos, pedidos e arquivo Word final para revisão humana.',
+    whenToUse: ['petição inicial, réplica, recurso, contrarrazões ou incidente', 'quando houver documentos do caso para ler', 'quando a entrega final deve ser um .docx revisável'],
+    whenNotToUse: ['quando faltarem fatos ou documentos essenciais', 'para inventar jurisprudência ou preencher lacunas por suposição', 'para substituir revisão profissional antes do protocolo'],
+    howItWorks: ['lê os documentos do caso', 'monta quadro de fatos, provas, lacunas e riscos', 'consulta referências internas da skill sob demanda', 'gera e audita o .docx final'],
+    bestUse: 'Entregue uma pasta organizada do caso, diga a peça desejada, rito/fase, pedido principal, prazo e documentos indispensáveis. Se faltar algo essencial, a skill deve parar.',
+    trigger: '$peticao-completa',
+    installCommand: command('peticao-completa'),
+    codexPrompt: 'Use $peticao-completa para gerar uma petição completa em .docx a partir da pasta de documentos do caso.',
+    claudePrompt: '/peticao-completa gere uma minuta em DOCX a partir destes documentos, separando fatos, provas, lacunas e riscos.',
+    limitations: ['não inventa fatos, documentos, valores, prazos ou precedentes', 'jurisprudência decisiva precisa de fonte verificada', 'o modelo de petição deve ser adaptado ao escritório do usuário'],
+    files: ['SKILL.md', 'references/', 'scripts/', 'assets/modelo-peticao.docx'],
+  },
+  {
+    id: 'peticao-analyzer',
+    folder: 'peticao-analyzer',
+    name: 'peticao-analyzer',
+    title: 'Petição Analyzer',
+    category: 'peticoes',
+    categoryLabel: 'Petições',
+    risk: 'juridico',
+    summary: 'Analisa peças, autos e documentos processuais para extrair argumentos, pedidos, provas, defesas e cronologia.',
+    serves: 'Criar uma visão consolidada de autos ou peça existente antes de decidir estratégia, audiência, réplica, recurso ou saneamento.',
+    whenToUse: ['quando já existe petição, contestação, laudo, recurso ou conjunto documental', 'para resumir autos', 'para mapear pontos controvertidos'],
+    whenNotToUse: ['quando a peça final ainda precisa ser redigida do zero', 'quando a tarefa principal é pesquisar jurisprudência', 'quando os arquivos estão ilegíveis'],
+    howItWorks: ['identifica o tipo de material', 'extrai pedidos, provas e teses', 'separa fatos de inferências', 'aponta lacunas e riscos processuais'],
+    bestUse: 'Envie a peça ou a pasta dos autos e peça uma saída específica: quadro de argumentos, cronologia, mapa de provas ou pauta de audiência.',
+    trigger: '$peticao-analyzer',
+    installCommand: command('peticao-analyzer'),
+    codexPrompt: 'Use $peticao-analyzer para analisar esta peça ou autos e mapear causas, argumentos, pedidos, provas e defesas.',
+    claudePrompt: '/peticao-analyzer analise estes autos e entregue pedidos, provas, defesas, cronologia e pontos controvertidos.',
+    limitations: ['não redige a peça completa', 'não presume autenticidade ou completude dos documentos', 'prazos e requisitos devem ser conferidos quando decisivos'],
+    files: ['SKILL.md', 'references/'],
+  },
+  {
+    id: 'revisao-senior-peticao',
+    folder: 'revisao-senior-peticao',
+    name: 'revisao-senior-peticao',
+    title: 'Revisão Sênior de Petição',
+    category: 'peticoes',
+    categoryLabel: 'Petições',
+    risk: 'juridico',
+    summary: 'Revisa peça já pronta como controle de qualidade pré-protocolo, com veredicto e pendências por gravidade.',
+    serves: 'Dizer se uma peça pode ser protocolada, se requer revisão ou se possui bloqueadores críticos.',
+    whenToUse: ['quando a peça já existe', 'antes de protocolo', 'para checar coerência entre fatos, provas, fundamentos e pedidos'],
+    whenNotToUse: ['quando só há briefing', 'quando o usuário quer redigir do zero', 'quando falta a peça para leitura'],
+    howItWorks: ['testa admissibilidade aparente', 'confere coerência lógica', 'audita lastro probatório', 'separa crítico, importante e aprimoramento'],
+    bestUse: 'Cole ou anexe a peça final e informe prazo, rito, fase, tribunal e documentos relevantes. Peça veredicto objetivo.',
+    trigger: '$revisao-senior-peticao',
+    installCommand: command('revisao-senior-peticao'),
+    codexPrompt: 'Use $revisao-senior-peticao para revisar esta peça e apontar itens críticos antes do protocolo.',
+    claudePrompt: '/revisao-senior-peticao revise esta peça como controle final antes do protocolo.',
+    limitations: ['não substitui revisão humana', 'não pesquisa jurisprudência ampla por padrão', 'não corrige tudo automaticamente sem pedido expresso'],
+    files: ['SKILL.md', 'agents/openai.yaml'],
+  },
+  {
+    id: 'analise-probatoria',
+    folder: 'analise-probatoria',
+    name: 'analise-probatoria',
+    title: 'Análise Probatória',
+    category: 'provas',
+    categoryLabel: 'Provas',
+    risk: 'juridico',
+    summary: 'Valora documentos e evidências, ligando cada prova ao fato que ela sustenta e ao risco de impugnação.',
+    serves: 'Evitar que a tese dependa de documentos fracos, incompletos, contraditórios ou mal apresentados.',
+    whenToUse: ['antes de redigir petição', 'quando há prints, contratos, e-mails, comprovantes ou laudos', 'quando a narrativa precisa ser testada contra a prova'],
+    whenNotToUse: ['para redigir a peça completa', 'quando os documentos estão inacessíveis', 'para presumir autoria, data ou autenticidade técnica'],
+    howItWorks: ['inventaria documentos', 'classifica força probatória de 1 a 5', 'mapeia lacunas por fato essencial', 'antecipa ataques da parte contrária'],
+    bestUse: 'Forneça os documentos e a narrativa esperada. Peça matriz documento, fato provado, força, risco e cautela de redação.',
+    trigger: '$analise-probatoria',
+    installCommand: command('analise-probatoria'),
+    codexPrompt: 'Use $analise-probatoria para avaliar estes documentos e montar a estratégia probatória.',
+    claudePrompt: '/analise-probatoria avalie estes documentos e diga o que cada um prova, sua força e seus riscos.',
+    limitations: ['não presume autenticidade técnica', 'não resolve lacuna probatória com retórica', 'não substitui perícia quando ela for necessária'],
+    files: ['SKILL.md', 'agents/openai.yaml'],
+  },
+  {
+    id: 'contrato-analyzer-br',
+    folder: 'analise-contratos',
+    name: 'contrato-analyzer-br',
+    title: 'Contrato Analyzer BR',
+    category: 'contratos',
+    categoryLabel: 'Contratos',
+    risk: 'juridico',
+    summary: 'Audita contratos brasileiros existentes, classificando riscos, lacunas, abusividade aparente e pontos de negociação.',
+    serves: 'Ajudar o advogado a revisar uma minuta recebida ou contrato assinado sem transformar tudo em reescrita automática.',
+    whenToUse: ['contratos de imóveis, serviços, tecnologia, bancários, financeiros e consumo', 'comparação de versões', 'relatório de riscos para negociação'],
+    whenNotToUse: ['para criar contrato novo do zero', 'quando falta o contrato completo', 'para afirmar ilegalidade categórica sem contexto'],
+    howItWorks: ['identifica tipo, partes, objeto, prazo e valor', 'checa requisitos gerais de validade', 'carrega checklist específico quando pertinente', 'classifica riscos por impacto'],
+    bestUse: 'Anexe o contrato completo e diga finalidade prática, lado representado, pontos sensíveis e objetivo da revisão.',
+    trigger: '$contrato-analyzer-br',
+    installCommand: command('contrato-analyzer-br'),
+    codexPrompt: 'Use $contrato-analyzer-br para analisar este contrato existente e apontar riscos, abusividades e falhas.',
+    claudePrompt: '/contrato-analyzer-br revise este contrato e entregue riscos por gravidade, lacunas e ajustes recomendados.',
+    limitations: ['não redige instrumento novo como tarefa principal', 'não afirma nulidade sem base normativa/contextual', 'distingue risco jurídico, comercial e ponto negociável'],
+    files: ['SKILL.md', 'references/'],
+  },
+  {
+    id: 'jurisprudencia-miner',
+    folder: 'jurisprudencia-miner',
+    name: 'jurisprudencia-miner',
+    title: 'Jurisprudência Miner',
+    category: 'jurisprudencia',
+    categoryLabel: 'Jurisprudência',
+    risk: 'juridico',
+    summary: 'Pesquisa, valida e classifica precedentes brasileiros sem inventar número, relator, data, órgão ou tese.',
+    serves: 'Encontrar base jurisprudencial confiável para petições, pareceres, teses e análise de risco.',
+    whenToUse: ['pesquisa de STJ, STF, súmulas, repetitivos, repercussão geral, IRDR ou tribunal local', 'quando a citação será usada profissionalmente', 'quando há risco de entendimento recente'],
+    whenNotToUse: ['para apenas testar a lógica de uma tese sem buscar precedente', 'quando o usuário quer redação de peça', 'quando não há fonte primária disponível e a citação seria decisiva'],
+    howItWorks: ['define tema, ramo, fase e tribunal', 'prioriza precedentes qualificados', 'valida achados em fonte primária', 'classifica confiança e utilidade'],
+    bestUse: 'Informe tese, tribunal relevante, fase do processo e palavras-chave. Exija links oficiais quando a citação entrar em peça.',
+    trigger: '$jurisprudencia-miner',
+    installCommand: command('jurisprudencia-miner'),
+    codexPrompt: 'Use $jurisprudencia-miner para localizar, validar e comparar precedentes sobre este tema.',
+    claudePrompt: '/jurisprudencia-miner pesquise precedentes oficiais sobre esta tese e classifique confiança e utilidade.',
+    limitations: ['memória do modelo não é fonte final', 'se fonte oficial falhar, o achado deve ficar como a verificar', 'não promete pesquisa exaustiva salvo pedido'],
+    files: ['SKILL.md', 'references/'],
+  },
+  {
+    id: 'tese-juridica-validator',
+    folder: 'tese-juridica-validator',
+    name: 'tese-juridica-validator',
+    title: 'Tese Jurídica Validator',
+    category: 'jurisprudencia',
+    categoryLabel: 'Jurisprudência',
+    risk: 'juridico',
+    summary: 'Testa a solidez de teses, argumentos e estratégias processuais antes de usá-los em peça ou decisão.',
+    serves: 'Mostrar força, fragilidade, lacunas e como a parte contrária atacaria a tese.',
+    whenToUse: ['comparar linhas argumentativas', 'avaliar chance argumentativa sem fingir precisão numérica', 'reformular tese ampla ou vulnerável'],
+    whenNotToUse: ['para localizar precedentes como tarefa principal', 'quando faltam fatos e provas mínimos', 'para substituir pesquisa oficial quando a jurisprudência é decisiva'],
+    howItWorks: ['formula a tese em uma frase', 'testa norma, fatos, jurisprudência, coerência e ataque adversarial', 'classifica como forte, defensável, frágil, temerária ou necessita pesquisa'],
+    bestUse: 'Forneça tese, lado processual, fase, tribunal, pedido e prova disponível. Peça uma resposta adversarial, não apenas favorável.',
+    trigger: '$tese-juridica-validator',
+    installCommand: command('tese-juridica-validator'),
+    codexPrompt: 'Use $tese-juridica-validator para testar esta tese juridica e apontar fragilidades e vulnerabilidades.',
+    claudePrompt: '/tese-juridica-validator teste esta tese e diga como a parte contrária atacaria.',
+    limitations: ['não dá probabilidade numérica rígida', 'não cita jurisprudência não verificada como final', 'classifica como necessita pesquisa quando faltam dados'],
+    files: ['SKILL.md', 'references/teses-por-area.md'],
+  },
+  {
+    id: 'marketing-juridico',
+    folder: 'marketing-juridico',
+    name: 'marketing-juridico',
+    title: 'Marketing Jurídico',
+    category: 'marketing',
+    categoryLabel: 'Marketing',
+    risk: 'juridico',
+    summary: 'Planeja e revisa marketing jurídico brasileiro com filtros de OAB, LGPD, sobriedade e risco reputacional.',
+    serves: 'Criar conteúdo, calendário, landing page, anúncios e governança de comunicação sem captação mercantilizada.',
+    whenToUse: ['conteúdo, SEO, anúncios, landing page, WhatsApp, calendário editorial e crise', 'quando a comunicação será pública', 'quando é necessário QA OAB/LGPD'],
+    whenNotToUse: ['para redigir petição, parecer ou contrato', 'para prometer resultado jurídico', 'para expor cliente, prova ou caso concreto'],
+    howItWorks: ['classifica o tipo de pedido', 'carrega referência temática', 'aplica filtro OAB/LGPD', 'entrega material com status de QA'],
+    bestUse: 'Informe área, público, região, canal, objetivo, tom e restrições. Peça sempre bloco final de QA OAB/LGPD.',
+    trigger: '$marketing-juridico',
+    installCommand: command('marketing-juridico'),
+    codexPrompt: 'Use $marketing-juridico para criar um plano de conteudo juridico com QA OAB antes da publicacao.',
+    claudePrompt: '/marketing-juridico crie este material e faça QA OAB/LGPD antes da versão final.',
+    limitations: ['não substitui aprovação do advogado responsável', 'não promete resultado', 'normas e políticas de plataformas podem exigir conferência atual'],
+    files: ['SKILL.md', 'references/'],
+  },
+  {
+    id: 'pdf',
+    folder: 'pdf',
+    name: 'pdf',
+    title: 'PDF Skill',
+    category: 'documentos',
+    categoryLabel: 'Documentos',
+    risk: 'documental',
+    summary: 'Lê, cria e revisa PDFs quando extração, renderização e layout importam.',
+    serves: 'Evitar confiar apenas em texto extraído quando o visual do PDF pode alterar a conclusão.',
+    whenToUse: ['PDFs escaneados ou com layout relevante', 'geração de PDF programática', 'validação visual de documentos finais'],
+    whenNotToUse: ['quando um texto simples basta', 'quando não há dependência instalada e o usuário não pode revisar localmente', 'para substituir OCR ou perícia quando necessária'],
+    howItWorks: ['prefere renderizar páginas em imagem', 'usa bibliotecas de PDF para extração e geração', 'valida alinhamento, legibilidade e cortes'],
+    bestUse: 'Peça leitura ou geração de PDF com checagem visual. Quando possível, renderize páginas antes de concluir.',
+    trigger: '$pdf',
+    installCommand: command('pdf'),
+    codexPrompt: 'Use $pdf para criar, revisar ou extrair informacoes deste PDF com checagem visual.',
+    claudePrompt: '/pdf revise este PDF considerando texto e layout.',
+    limitations: ['pode exigir Poppler, OCR ou bibliotecas Python', 'texto extraído não garante fidelidade visual', 'arquivos protegidos podem impedir leitura completa'],
+    files: ['SKILL.md', 'assets/pdf.png'],
+  },
+  {
+    id: 'session-handoff',
+    folder: 'session-handoff',
+    name: 'session-handoff',
+    title: 'Handoff de Sessão',
+    category: 'produtividade',
+    categoryLabel: 'Produtividade',
+    risk: 'operacional',
+    summary: 'Gera um Markdown autossuficiente para retomar uma conversa ou trabalho em outra sessão sem perder contexto.',
+    serves: 'Documentar objetivo, estado atual, próximos passos, lacunas, riscos e artefatos relevantes.',
+    whenToUse: ['ao encerrar sessão longa', 'antes de trocar de conversa ou agente', 'quando há documentos, código ou estratégia em andamento'],
+    whenNotToUse: ['para resumir sem criar arquivo quando o usuário pediu continuidade operacional', 'quando não há trabalho a preservar', 'para inventar decisões não tomadas'],
+    howItWorks: ['identifica objetivo e condição de sucesso', 'inspeciona artefatos relevantes', 'separa fato, prova, inferência, lacuna e risco', 'cria arquivo Markdown datado'],
+    bestUse: 'Peça um handoff antes de encerrar uma tarefa longa. Inclua onde quer salvar o arquivo se não for no diretório atual.',
+    trigger: '$session-handoff',
+    installCommand: command('session-handoff'),
+    codexPrompt: 'Use $session-handoff para encerrar esta conversa com um documento Markdown autossuficiente para retomar o trabalho em outra sessão.',
+    claudePrompt: '/session-handoff gere um arquivo de handoff completo para outra sessão continuar.',
+    limitations: ['depende da inspeção dos artefatos disponíveis', 'não deve registrar suposições como fatos', 'não substitui backup do projeto'],
+    files: ['SKILL.md', 'agents/openai.yaml'],
+  },
+  {
+    id: 'find-skills',
+    folder: 'find-skills',
+    name: 'find-skills',
+    title: 'Find Skills',
+    category: 'produtividade',
+    categoryLabel: 'Produtividade',
+    risk: 'baixo',
+    summary: 'Ajuda a descobrir e avaliar skills do ecossistema aberto antes de instalar.',
+    serves: 'Evitar recomendações fracas, abandonadas ou pouco confiáveis quando o usuário procura novas capacidades.',
+    whenToUse: ['quando alguém pergunta se existe uma skill para uma tarefa', 'para buscar alternativas no ecossistema', 'para comparar qualidade antes da instalação'],
+    whenNotToUse: ['quando a skill necessária já é conhecida', 'para instalar sem revisar origem', 'para tarefas jurídicas que exigem outra skill principal'],
+    howItWorks: ['entende o domínio', 'consulta opções', 'verifica reputação básica', 'apresenta comandos de instalação'],
+    bestUse: 'Use para triagem. Revise sempre origem, permissões, scripts e reputação antes de instalar algo de terceiros.',
+    trigger: '$find-skills',
+    installCommand: command('find-skills'),
+    codexPrompt: 'Use $find-skills para localizar uma skill confiavel para esta tarefa.',
+    claudePrompt: '/find-skills encontre skills confiáveis para esta necessidade.',
+    limitations: ['não garante segurança de terceiros', 'popularidade não equivale a adequação jurídica', 'instalação deve ser decisão consciente'],
+    files: ['SKILL.md'],
+  },
+  {
+    id: 'playwright-interactive',
+    folder: 'playwright-interactive',
+    name: 'playwright-interactive',
+    title: 'Playwright Interactive',
+    category: 'qa',
+    categoryLabel: 'QA técnico',
+    risk: 'operacional',
+    summary: 'Mantém sessão Playwright persistente para depurar sites, apps locais e interfaces Electron com evidência funcional e visual.',
+    serves: 'Fazer QA real em interface, evitando afirmar que uma tela funciona sem abrir, clicar, testar estados e capturar evidência.',
+    whenToUse: ['landing pages, apps web, Electron e fluxos interativos', 'após mudança visual relevante', 'quando é preciso verificar desktop e mobile'],
+    whenNotToUse: ['quando não há ambiente local executável', 'para tarefas jurídicas sem interface', 'quando a ferramenta Playwright não está disponível'],
+    howItWorks: ['define inventário de QA', 'abre runtime persistente', 'testa controles e estados', 'faz checagem visual e responsiva'],
+    bestUse: 'Rode depois de implementar página ou app. Liste as afirmações que quer assinar e teste cada uma no navegador.',
+    trigger: '$playwright-interactive',
+    installCommand: command('playwright-interactive'),
+    codexPrompt: 'Use $playwright-interactive to debug a local web or Electron app in a persistent Playwright session and capture the QA evidence.',
+    claudePrompt: '/playwright-interactive abra a aplicação local, teste os fluxos e capture evidências visuais.',
+    limitations: ['exige Playwright e runtime compatível', 'pode precisar de servidor local', 'não substitui testes automatizados de longo prazo'],
+    files: ['SKILL.md', 'assets/'],
+  },
+];
+
+export const skillById = new Map(skills.map((skill) => [skill.id, skill]));

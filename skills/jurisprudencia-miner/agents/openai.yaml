@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jurisprudencia Miner"
+  short_description: "Pesquisa e validacao de precedentes brasileiros"
+  default_prompt: "Use $jurisprudencia-miner para localizar, validar e comparar precedentes sobre este tema."

@@ -1,0 +1,378 @@
+---
+import '../styles/global.css';
+import { categories, installCommands, repository, skills } from '../data/skills';
+
+const totalSkills = skills.length;
+const categoryCounts = skills.reduce<Record<string, number>>((acc, skill) => {
+  acc[skill.category] = (acc[skill.category] ?? 0) + 1;
+  return acc;
+}, {});
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const heroImage = 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=84';
+const rawBase = `${repository.url}/tree/main/skills`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Biblioteca pública de skills jurídicas para Codex, Claude Code e outras LLMs, com instalação via npx skills e documentação didática para advogados."
+    />
+    <meta property="og:title" content="Biblioteca Skills Jurídicas" />
+    <meta property="og:description" content="Skills jurídicas para Codex e Claude Code, com instalação simples e uso responsável na advocacia brasileira." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={repository.pagesUrl} />
+    <meta property="og:image" content={heroImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#18362f" />
+    <link rel="canonical" href={repository.pagesUrl} />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <title>Biblioteca Skills Jurídicas</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
+
+    <header class="site-header" aria-label="Cabeçalho principal">
+      <a class="brand" href="#topo" aria-label="Biblioteca Skills Jurídicas">
+        <span class="brand-mark" aria-hidden="true">§</span>
+        <span>Biblioteca Skills Jurídicas</span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#instalacao">Instalação</a>
+        <a href="#catalogo">Skills</a>
+        <a href="#uso">Uso responsável</a>
+        <a href={repository.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="topo">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">Codex, Claude Code e LLMs compatíveis com SKILL.md</p>
+          <h1 id="hero-title">Skills jurídicas instaláveis, explicadas para uso real de escritório.</h1>
+          <p class="hero-lead">
+            Um repositório público com {totalSkills} skills para petições, provas, contratos, jurisprudência, marketing jurídico, PDFs e rotinas de produtividade. Feito para advogados que precisam de clareza, controle e revisão humana.
+          </p>
+          <div class="hero-actions" aria-label="Ações principais">
+            <a class="button primary" href="#instalacao">Instalar agora</a>
+            <a class="button secondary" href="#catalogo">Ver catálogo</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Comando principal de instalação">
+          <figure class="hero-photo">
+            <img src={heroImage} alt="Mesa jurídica com documentos, caneta e papéis de trabalho" loading="eager" decoding="async" />
+          </figure>
+          <div class="terminal-card">
+            <div class="terminal-top">
+              <span>instalação no Codex</span>
+              <button class="copy-button small" type="button" data-copy={installCommands.codex}>Copiar</button>
+            </div>
+            <code>{installCommands.codex}</code>
+          </div>
+          <dl class="hero-facts">
+            <div>
+              <dt>{totalSkills}</dt>
+              <dd>skills públicas</dd>
+            </div>
+            <div>
+              <dt>npx</dt>
+              <dd>sem conta npm</dd>
+            </div>
+            <div>
+              <dt>1 a 1</dt>
+              <dd>baixar individual</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="intro band" aria-labelledby="intro-title">
+        <div>
+          <p class="kicker">O que é uma skill</p>
+          <h2 id="intro-title">Uma skill é uma instrução persistente, com método, limites e arquivos auxiliares.</h2>
+        </div>
+        <p>
+          Em vez de repetir prompts longos, você instala uma pasta com `SKILL.md`, referências, modelos e scripts. O agente passa a saber quando usar aquele método, como trabalhar, quando parar e o que não pode inventar.
+        </p>
+      </section>
+
+      <section class="install band" id="instalacao" aria-labelledby="install-title">
+        <div class="section-heading">
+          <p class="kicker">Instalação didática</p>
+          <h2 id="install-title">Copie um comando. O instalador baixa as skills do GitHub.</h2>
+          <p>Você precisa de Node.js com `npx`, acesso à internet e permissão para gravar na pasta de skills do agente. Não precisa criar conta npm.</p>
+        </div>
+
+        <div class="install-grid">
+          <article class="install-step">
+            <span class="step-number">01</span>
+            <h3>Codex</h3>
+            <p>Instala todas as skills no Codex, em modo global.</p>
+            <div class="command-row">
+              <code>{installCommands.codex}</code>
+              <button class="copy-button" type="button" data-copy={installCommands.codex}>Copiar</button>
+            </div>
+          </article>
+          <article class="install-step">
+            <span class="step-number">02</span>
+            <h3>Claude Code</h3>
+            <p>Instala as mesmas skills para uso no Claude Code.</p>
+            <div class="command-row">
+              <code>{installCommands.claude}</code>
+              <button class="copy-button" type="button" data-copy={installCommands.claude}>Copiar</button>
+            </div>
+          </article>
+          <article class="install-step">
+            <span class="step-number">03</span>
+            <h3>Ver antes de instalar</h3>
+            <p>Lista as skills disponíveis no repositório.</p>
+            <div class="command-row">
+              <code>{installCommands.list}</code>
+              <button class="copy-button" type="button" data-copy={installCommands.list}>Copiar</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="note-row">
+          <p>
+            As skills foram feitas para Codex, mas o formato em Markdown permite adaptação para Claude e outras LLMs. Algumas funções dependem de ferramentas locais, como leitura de arquivos, scripts Python, renderização de PDF ou Playwright.
+          </p>
+          <a class="text-link" href={`${baseUrl}skills.json`}>Abrir índice JSON</a>
+        </div>
+      </section>
+
+      <section class="catalog band" id="catalogo" aria-labelledby="catalog-title">
+        <div class="catalog-top">
+          <div>
+            <p class="kicker">Catálogo</p>
+            <h2 id="catalog-title">Baixe uma skill isolada ou instale o conjunto completo.</h2>
+          </div>
+          <label class="search-box">
+            <span>Buscar skill</span>
+            <input id="skill-search" type="search" placeholder="Ex.: petição, contrato, OAB, PDF" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="filter-list" role="group" aria-label="Filtros por finalidade">
+          {
+            categories.map((category) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter={category.id}
+                aria-pressed={category.id === 'all' ? 'true' : 'false'}
+              >
+                <span>{category.label}</span>
+                <small>{category.id === 'all' ? totalSkills : categoryCounts[category.id] ?? 0}</small>
+              </button>
+            ))
+          }
+        </div>
+
+        <p class="results-count" id="results-count" aria-live="polite">{totalSkills} skills encontradas</p>
+
+        <div class="skill-list" id="skill-list">
+          {
+            skills.map((skill, index) => (
+              <article
+                class="skill-card"
+                data-category={skill.category}
+                data-search={`${skill.title} ${skill.name} ${skill.categoryLabel} ${skill.summary} ${skill.serves} ${skill.whenToUse.join(' ')} ${skill.bestUse}`}
+              >
+                <details>
+                  <summary>
+                    <span class="skill-index">{String(index + 1).padStart(2, '0')}</span>
+                    <span class="summary-copy">
+                      <span class="meta-line">
+                        <span>{skill.categoryLabel}</span>
+                        <span>{skill.risk}</span>
+                        <span>{skill.trigger}</span>
+                      </span>
+                      <strong>{skill.title}</strong>
+                      <em>{skill.summary}</em>
+                    </span>
+                  </summary>
+
+                  <div class="skill-detail">
+                    <section>
+                      <h3>Para que serve</h3>
+                      <p>{skill.serves}</p>
+                    </section>
+                    <section>
+                      <h3>Quando usar</h3>
+                      <ul>
+                        {skill.whenToUse.map((item) => <li>{item}</li>)}
+                      </ul>
+                    </section>
+                    <section>
+                      <h3>Quando não usar</h3>
+                      <ul>
+                        {skill.whenNotToUse.map((item) => <li>{item}</li>)}
+                      </ul>
+                    </section>
+                    <section>
+                      <h3>Como funciona</h3>
+                      <ul>
+                        {skill.howItWorks.map((item) => <li>{item}</li>)}
+                      </ul>
+                    </section>
+                    <section class="wide">
+                      <h3>Melhor forma de uso</h3>
+                      <p>{skill.bestUse}</p>
+                    </section>
+                    <section>
+                      <h3>Limites</h3>
+                      <ul>
+                        {skill.limitations.map((item) => <li>{item}</li>)}
+                      </ul>
+                    </section>
+                    <section class="wide">
+                      <h3>Instalar só esta skill</h3>
+                      <div class="command-row">
+                        <code>{skill.installCommand}</code>
+                        <button class="copy-button" type="button" data-copy={skill.installCommand}>Copiar</button>
+                      </div>
+                    </section>
+                    <section>
+                      <h3>Uso no Codex</h3>
+                      <p><code>{skill.codexPrompt}</code></p>
+                    </section>
+                    <section>
+                      <h3>Uso no Claude</h3>
+                      <p><code>{skill.claudePrompt}</code></p>
+                    </section>
+                    <section class="wide">
+                      <h3>Arquivos principais</h3>
+                      <p>{skill.files.join(' · ')}</p>
+                      <div class="card-actions">
+                        <a class="button small-button" href={`${rawBase}/${skill.folder}`} target="_blank" rel="noopener noreferrer">Abrir pasta</a>
+                        <a class="button small-button" href={`${baseUrl}downloads/${skill.folder}.zip`} download>Baixar ZIP</a>
+                      </div>
+                    </section>
+                  </div>
+                </details>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="usage band" id="uso" aria-labelledby="usage-title">
+        <div class="section-heading">
+          <p class="kicker">Uso responsável</p>
+          <h2 id="usage-title">A skill melhora o método. A responsabilidade continua sendo do advogado.</h2>
+        </div>
+        <div class="usage-grid">
+          <article>
+            <h3>Fatos</h3>
+            <p>Não use a IA para completar datas, valores, números de processo, documentos ou histórico do cliente.</p>
+          </article>
+          <article>
+            <h3>Fontes</h3>
+            <p>Lei, jurisprudência, normas da OAB, políticas de plataforma e dados atuais devem ser conferidos em fonte confiável antes do uso profissional.</p>
+          </article>
+          <article>
+            <h3>Sigilo</h3>
+            <p>Anonimize material sensível sempre que possível e mantenha atenção a sigilo profissional, LGPD e políticas da ferramenta usada.</p>
+          </article>
+          <article>
+            <h3>Revisão</h3>
+            <p>Peças, contratos, pareceres, marketing e documentos finais precisam de revisão humana antes de envio, publicação ou protocolo.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Biblioteca Skills Jurídicas, projeto público para uso responsável de IA na advocacia brasileira.</p>
+      <div>
+        <a href={`${repository.url}/blob/main/INSTALL.md`} target="_blank" rel="noopener noreferrer">Instalação</a>
+        <a href={`${repository.url}/blob/main/docs/codex.md`} target="_blank" rel="noopener noreferrer">Codex</a>
+        <a href={`${repository.url}/blob/main/docs/claude.md`} target="_blank" rel="noopener noreferrer">Claude</a>
+        <a href={repository.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const searchInput = document.querySelector('#skill-search');
+      const cards = Array.from(document.querySelectorAll('.skill-card'));
+      const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+      const count = document.querySelector('#results-count');
+      let activeFilter = 'all';
+
+      const normalize = (value) =>
+        value
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+
+      const applyFilters = () => {
+        const query = normalize(searchInput?.value ?? '');
+        let visible = 0;
+        cards.forEach((card) => {
+          const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+          const matchesSearch = normalize(card.dataset.search ?? '').includes(query);
+          const shouldShow = matchesFilter && matchesSearch;
+          card.hidden = !shouldShow;
+          if (shouldShow) visible += 1;
+        });
+        if (count) count.textContent = `${visible} ${visible === 1 ? 'skill encontrada' : 'skills encontradas'}`;
+      };
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter ?? 'all';
+          filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+          applyFilters();
+        });
+      });
+
+      searchInput?.addEventListener('input', applyFilters);
+
+      document.querySelectorAll('.copy-button').forEach((button) => {
+        button.addEventListener('click', async () => {
+          const value = button.getAttribute('data-copy') ?? '';
+          const fallbackCopy = () => {
+            const area = document.createElement('textarea');
+            area.value = value;
+            area.setAttribute('readonly', '');
+            area.style.position = 'fixed';
+            area.style.left = '-9999px';
+            document.body.appendChild(area);
+            area.select();
+            const copied = document.execCommand('copy');
+            area.remove();
+            return copied;
+          };
+          try {
+            if (navigator.clipboard?.writeText) {
+              await navigator.clipboard.writeText(value);
+            } else if (!fallbackCopy()) {
+              throw new Error('copy failed');
+            }
+            const previous = button.textContent;
+            button.textContent = 'Copiado';
+            window.setTimeout(() => {
+              button.textContent = previous;
+            }, 1300);
+          } catch {
+            if (fallbackCopy()) {
+              const previous = button.textContent;
+              button.textContent = 'Copiado';
+              window.setTimeout(() => {
+                button.textContent = previous;
+              }, 1300);
+            } else {
+              button.textContent = 'Selecione';
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Biblioteca Skills Juridicas">
+  <rect width="64" height="64" rx="14" fill="#18362f"/>
+  <path d="M18 17h22c5.4 0 9 3.4 9 8.3 0 3.6-2 6.2-5.2 7.3 3.7 1 6.2 3.9 6.2 8.1C50 46 45.7 49 40 49H18V17Zm9 8v5h11c2.1 0 3.4-.9 3.4-2.6S40.1 25 38 25H27Zm0 12v4h12.5c2.1 0 3.3-.7 3.3-2s-1.2-2-3.3-2H27Z" fill="#ead8b5"/>
+  <path d="M13 53h38" stroke="#c8844b" stroke-width="3" stroke-linecap="round"/>
+</svg>

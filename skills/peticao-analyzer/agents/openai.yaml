@@ -1,0 +1,4 @@
+interface:
+  display_name: "Peticao Analyzer"
+  short_description: "Analise estruturada de pecas, autos e argumentos"
+  default_prompt: "Use $peticao-analyzer para analisar esta peca ou autos e mapear causas, argumentos, pedidos, provas e defesas."

@@ -1,0 +1,24 @@
+{
+  "name": "biblioteca-skills-juridicas",
+  "description": "Biblioteca pública de skills jurídicas para Codex, Claude Code e LLMs compatíveis com SKILL.md.",
+  "repository": "https://github.com/carloslimadv/biblioteca-skills-juridicas",
+  "install": {
+    "codex": "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent codex --yes",
+    "claudeCode": "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code --yes",
+    "list": "npx skills add carloslimadv/biblioteca-skills-juridicas --list"
+  },
+  "skills": [
+    { "name": "peticao-completa", "folder": "peticao-completa", "category": "peticoes" },
+    { "name": "peticao-analyzer", "folder": "peticao-analyzer", "category": "peticoes" },
+    { "name": "revisao-senior-peticao", "folder": "revisao-senior-peticao", "category": "peticoes" },
+    { "name": "analise-probatoria", "folder": "analise-probatoria", "category": "provas" },
+    { "name": "contrato-analyzer-br", "folder": "analise-contratos", "category": "contratos" },
+    { "name": "jurisprudencia-miner", "folder": "jurisprudencia-miner", "category": "jurisprudencia" },
+    { "name": "tese-juridica-validator", "folder": "tese-juridica-validator", "category": "jurisprudencia" },
+    { "name": "marketing-juridico", "folder": "marketing-juridico", "category": "marketing" },
+    { "name": "pdf", "folder": "pdf", "category": "documentos" },
+    { "name": "session-handoff", "folder": "session-handoff", "category": "produtividade" },
+    { "name": "find-skills", "folder": "find-skills", "category": "produtividade" },
+    { "name": "playwright-interactive", "folder": "playwright-interactive", "category": "qa" }
+  ]
+}

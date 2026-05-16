@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revisão Sênior de Petição"
+  short_description: "Revisa a peça antes do protocolo"
+  default_prompt: "Use $revisao-senior-peticao para revisar esta peça e apontar itens críticos antes do protocolo."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Marketing Juridico"
+  short_description: "Marketing juridico com filtro OAB"
+  default_prompt: "Use $marketing-juridico para criar um plano de conteudo juridico com QA OAB antes da publicacao."
+
+policy:
+  allow_implicit_invocation: true
