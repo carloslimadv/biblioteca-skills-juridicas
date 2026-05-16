@@ -106,18 +106,6 @@ Se esta biblioteca economiza tempo no escritório ou ajuda sua equipe a trabalha
 
 Você também pode acompanhar atualizações no Instagram: [@carloslimadv](https://www.instagram.com/carloslimadv/).
 
-## Desenvolvimento local
-
-```bash
-npm install
-npm run dev
-```
-
-Build da página:
-
-```bash
-npm run build
-```
 
 ## Licença
 
