@@ -10,6 +10,8 @@ const categoryCounts = skills.reduce<Record<string, number>>((acc, skill) => {
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const heroImage = 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=84';
 const rawBase = `${repository.url}/tree/main/skills`;
+const instagramUrl = 'https://www.instagram.com/carloslimadv/';
+const donationUrl = 'https://www.buymeacoffee.com/carloslimadv';
 ---
 
 <!doctype html>
@@ -41,12 +43,43 @@ const rawBase = `${repository.url}/tree/main/skills`;
         <span class="brand-mark" aria-hidden="true">§</span>
         <span>Biblioteca Skills Jurídicas</span>
       </a>
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#instalacao">Instalação</a>
-        <a href="#catalogo">Skills</a>
-        <a href="#uso">Uso responsável</a>
-        <a href={repository.url} target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#instalacao">Instalação</a>
+          <a href="#catalogo">Skills</a>
+          <a href="#uso">Uso responsável</a>
+          <a href={repository.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <a class="social-link" href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Carlos Lima">
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" />
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <div class="donation-slot" aria-label="Apoie este projeto">
+          <script
+            is:inline
+            type="text/javascript"
+            src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+            data-name="bmc-button"
+            data-slug="carloslimadv"
+            data-color="#FFDD00"
+            data-emoji="☕"
+            data-font="Bree"
+            data-text="Compre-me um café"
+            data-outline-color="#000000"
+            data-font-color="#000000"
+            data-coffee-color="#ffffff"
+          ></script>
+          <noscript>
+            <a class="donation-fallback" href={donationUrl} target="_blank" rel="noopener noreferrer">
+              Compre-me um café
+            </a>
+          </noscript>
+        </div>
+      </div>
     </header>
 
     <main id="topo">
@@ -60,6 +93,7 @@ const rawBase = `${repository.url}/tree/main/skills`;
           <div class="hero-actions" aria-label="Ações principais">
             <a class="button primary" href="#instalacao">Instalar agora</a>
             <a class="button secondary" href="#catalogo">Ver catálogo</a>
+            <a class="button tertiary" href={donationUrl} target="_blank" rel="noopener noreferrer">Apoiar projeto</a>
           </div>
         </div>
 
@@ -143,6 +177,22 @@ const rawBase = `${repository.url}/tree/main/skills`;
             As skills foram feitas para Codex, mas o formato em Markdown permite adaptação para Claude e outras LLMs. Algumas funções dependem de ferramentas locais, como leitura de arquivos, scripts Python, renderização de PDF ou Playwright.
           </p>
           <a class="text-link" href={`${baseUrl}skills.json`}>Abrir índice JSON</a>
+        </div>
+      </section>
+
+      <section class="support band" id="apoio" aria-labelledby="support-title">
+        <div class="support-card">
+          <div>
+            <p class="kicker">Apoie a biblioteca</p>
+            <h2 id="support-title">Se este material economiza tempo no escritório, considere apoiar a manutenção.</h2>
+            <p>
+              O apoio ajuda a manter documentação, melhorias das skills, testes de instalação e novas rotinas jurídicas públicas.
+            </p>
+          </div>
+          <a class="coffee-cta" href={donationUrl} target="_blank" rel="noopener noreferrer">
+            <span>Compre-me um café</span>
+            <small>Buy Me a Coffee</small>
+          </a>
         </div>
       </section>
 
@@ -289,12 +339,19 @@ const rawBase = `${repository.url}/tree/main/skills`;
     </main>
 
     <footer class="site-footer">
-      <p>Biblioteca Skills Jurídicas, projeto público para uso responsável de IA na advocacia brasileira.</p>
-      <div>
-        <a href={`${repository.url}/blob/main/INSTALL.md`} target="_blank" rel="noopener noreferrer">Instalação</a>
-        <a href={`${repository.url}/blob/main/docs/codex.md`} target="_blank" rel="noopener noreferrer">Codex</a>
-        <a href={`${repository.url}/blob/main/docs/claude.md`} target="_blank" rel="noopener noreferrer">Claude</a>
-        <a href={repository.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <div class="footer-main">
+        <p>Biblioteca Skills Jurídicas, projeto público para uso responsável de IA na advocacia brasileira.</p>
+        <div class="footer-links">
+          <a href={`${repository.url}/blob/main/INSTALL.md`} target="_blank" rel="noopener noreferrer">Instalação</a>
+          <a href={`${repository.url}/blob/main/docs/codex.md`} target="_blank" rel="noopener noreferrer">Codex</a>
+          <a href={`${repository.url}/blob/main/docs/claude.md`} target="_blank" rel="noopener noreferrer">Claude</a>
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href={donationUrl} target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
+        </div>
+      </div>
+      <div class="footer-repo">
+        <span>Repositório do projeto</span>
+        <a href={repository.url} target="_blank" rel="noopener noreferrer">{repository.url}</a>
       </div>
     </footer>
 
