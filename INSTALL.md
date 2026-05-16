@@ -19,7 +19,7 @@ Você não precisa criar conta npm para usar o método abaixo.
 2. Cole o comando:
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent codex --yes
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global
 ```
 
 3. Reinicie ou atualize a sessão do Codex se a ferramenta não reconhecer as skills imediatamente.
@@ -35,7 +35,7 @@ Use $peticao-completa para gerar uma petição completa em .docx a partir desta 
 2. Cole o comando:
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code --yes
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code
 ```
 
 3. Reinicie ou atualize a sessão do Claude Code se necessário.
@@ -50,21 +50,21 @@ npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --a
 Troque o nome da skill no comando:
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill peticao-completa --global --agent codex --yes
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill peticao-completa --global
 ```
 
 Outros exemplos:
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill jurisprudencia-miner --global --agent codex --yes
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill marketing-juridico --global --agent claude-code --yes
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill contrato-analyzer-br --global --agent codex --yes
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill jurisprudencia-miner --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill marketing-juridico --global --agent claude-code
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill contrato-analyzer-br --global
 ```
 
 ## Ver a lista antes de instalar
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --list
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --list
 ```
 
 ## Usar em outras LLMs

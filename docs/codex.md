@@ -3,7 +3,7 @@
 ## Instalação recomendada
 
 ```bash
-npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent codex --yes
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global
 ```
 
 ## Como chamar uma skill

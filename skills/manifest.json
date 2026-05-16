@@ -3,9 +3,9 @@
   "description": "Biblioteca pública de skills jurídicas para Codex, Claude Code e LLMs compatíveis com SKILL.md.",
   "repository": "https://github.com/carloslimadv/biblioteca-skills-juridicas",
   "install": {
-    "codex": "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent codex --yes",
-    "claudeCode": "npx skills add carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code --yes",
-    "list": "npx skills add carloslimadv/biblioteca-skills-juridicas --list"
+    "codex": "npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global",
+    "claudeCode": "npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code",
+    "list": "npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --list"
   },
   "skills": [
     { "name": "peticao-completa", "folder": "peticao-completa", "category": "peticoes" },
