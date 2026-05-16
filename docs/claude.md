@@ -3,7 +3,13 @@
 ## Instalação recomendada
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
+```
+
+Se quiser forçar a instalação no Claude Code:
+
+```bash
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --agent claude-code
 ```
 
 ## Como chamar uma skill

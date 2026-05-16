@@ -8,38 +8,37 @@ Você precisa de:
 
 - computador com acesso à internet;
 - Node.js instalado, pois ele fornece o comando `npx`;
-- Codex ou Claude Code instalado;
-- permissão para instalar arquivos na pasta de skills do agente.
+- Codex, Claude Code ou outra ferramenta compatível;
+- permissão para instalar arquivos na pasta de skills da ferramenta.
 
 Você não precisa criar conta npm para usar o método abaixo.
 
-## Instalar no Codex
+## Instalar todas as skills
 
 1. Abra o terminal.
 2. Cole o comando:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
 ```
 
-3. Reinicie ou atualize a sessão do Codex se a ferramenta não reconhecer as skills imediatamente.
-4. Use uma skill chamando pelo nome, por exemplo:
+3. Se o instalador mostrar opções, escolha Codex, Claude Code ou a ferramenta que você usa.
+4. Reinicie ou atualize a sessão da ferramenta se ela não reconhecer as skills imediatamente.
+5. Use uma skill chamando pelo nome, por exemplo:
 
 ```text
 Use $peticao-completa para gerar uma petição completa em .docx a partir desta pasta de documentos.
 ```
 
-## Instalar no Claude Code
+## Forçar Claude Code
 
-1. Abra o terminal.
-2. Cole o comando:
+Na maioria dos casos, o comando principal já resolve. Se quiser direcionar explicitamente para o Claude Code, use:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --agent claude-code
 ```
 
-3. Reinicie ou atualize a sessão do Claude Code se necessário.
-4. Use a skill pelo nome, por exemplo:
+Exemplo de uso no Claude:
 
 ```text
 /peticao-analyzer analise estes autos e entregue argumentos, pedidos, provas e pontos controvertidos.
@@ -50,15 +49,15 @@ npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --ski
 Troque o nome da skill no comando:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill peticao-completa --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill peticao-completa
 ```
 
 Outros exemplos:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill jurisprudencia-miner --global
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill marketing-juridico --global --agent claude-code
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill contrato-analyzer-br --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill jurisprudencia-miner
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill marketing-juridico --agent claude-code
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill contrato-analyzer-br
 ```
 
 ## Ver a lista antes de instalar

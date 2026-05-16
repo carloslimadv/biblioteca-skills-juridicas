@@ -31,16 +31,18 @@ Na prática, esta biblioteca ajuda a:
 
 ## Instalação rápida
 
-Instalar todas as skills no Codex:
+Instalar todas as skills:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
 ```
 
-Instalar todas as skills no Claude Code:
+O instalador detecta o ambiente disponível e, quando necessário, mostra opções para escolher Codex, Claude Code ou outra ferramenta compatível.
+
+Opção avançada para forçar Claude Code:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --agent claude-code
 ```
 
 Listar antes de instalar:

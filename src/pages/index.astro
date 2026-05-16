@@ -106,8 +106,8 @@ const featuredSkills = skills.slice(0, 4);
 
           <aside class="install-console" aria-label="Comando principal de instalação">
             <div class="console-top">
-              <span>protocolo de instalação</span>
-              <span>codex/global</span>
+              <span>comando principal</span>
+              <span>Codex, Claude e outros</span>
             </div>
             <code>{installCommands.codex}</code>
             <button class="copy-button console-copy" type="button" data-copy={installCommands.codex}>Copiar comando</button>
@@ -132,8 +132,8 @@ const featuredSkills = skills.slice(0, 4);
               <dd>download individual</dd>
             </div>
             <div>
-              <dt>SKILL.md</dt>
-              <dd>compatível com Codex e Claude</dd>
+              <dt>MD</dt>
+              <dd>formato SKILL.md</dd>
             </div>
           </dl>
           <div class="brief-note">
@@ -146,9 +146,9 @@ const featuredSkills = skills.slice(0, 4);
       <section class="install-section" id="instalacao" aria-labelledby="install-title">
         <div class="section-rail">
           <p class="eyebrow">Instalação simplificada</p>
-          <h2 id="install-title">Três caminhos, um repositório.</h2>
+          <h2 id="install-title">Um comando para instalar.</h2>
           <p>
-            O comando usa o instalador `npx skills` diretamente do GitHub. A pessoa precisa apenas de Node.js/npm, internet e permissão para gravar as skills no Codex ou no Claude.
+            O instalador baixa o repositório pelo GitHub e detecta o ambiente disponível. Em ferramentas que mostram seleção, escolha Codex, Claude Code ou a opção equivalente.
           </p>
         </div>
 
@@ -156,9 +156,9 @@ const featuredSkills = skills.slice(0, 4);
           <article class="command-panel main-command">
             <div class="panel-label">
               <span>01</span>
-              <strong>Instalar tudo no Codex</strong>
+              <strong>Instalar todas as skills</strong>
             </div>
-            <p>Opção recomendada para começar. Instala todo o acervo em modo global.</p>
+            <p>Opção recomendada para começar. Copie, cole no terminal e siga as opções do instalador, se aparecerem.</p>
             <div class="command-row">
               <code>{installCommands.codex}</code>
               <button class="copy-button" type="button" data-copy={installCommands.codex}>Copiar</button>
@@ -168,24 +168,24 @@ const featuredSkills = skills.slice(0, 4);
           <article class="command-panel">
             <div class="panel-label">
               <span>02</span>
-              <strong>Instalar no Claude Code</strong>
+              <strong>Ver antes de instalar</strong>
             </div>
-            <p>Mesmo repositório, com instalação direcionada ao Claude Code.</p>
+            <p>Mostra a lista de skills disponíveis no repositório.</p>
             <div class="command-row">
-              <code>{installCommands.claude}</code>
-              <button class="copy-button" type="button" data-copy={installCommands.claude}>Copiar</button>
+              <code>{installCommands.list}</code>
+              <button class="copy-button" type="button" data-copy={installCommands.list}>Copiar</button>
             </div>
           </article>
 
           <article class="command-panel">
             <div class="panel-label">
               <span>03</span>
-              <strong>Ver antes de instalar</strong>
+              <strong>Instalar uma skill específica</strong>
             </div>
-            <p>Lista as skills públicas disponíveis no repositório.</p>
+            <p>Use quando quiser baixar apenas uma rotina, como Petição Completa.</p>
             <div class="command-row">
-              <code>{installCommands.list}</code>
-              <button class="copy-button" type="button" data-copy={installCommands.list}>Copiar</button>
+              <code>{skills[0].installCommand}</code>
+              <button class="copy-button" type="button" data-copy={skills[0].installCommand}>Copiar</button>
             </div>
           </article>
         </div>
@@ -213,18 +213,6 @@ const featuredSkills = skills.slice(0, 4);
             <p>O resultado é uma minuta, análise, mapa, checklist ou orientação prática para revisão humana.</p>
           </article>
         </div>
-      </section>
-
-      <section class="support-strip" id="apoio" aria-labelledby="support-title">
-        <div>
-          <p class="eyebrow">Manutenção pública</p>
-          <h2 id="support-title">Apoie a atualização das skills.</h2>
-          <p>O apoio ajuda a manter documentação, testes de instalação, melhoria das rotinas e novas skills jurídicas abertas.</p>
-        </div>
-        <a class="coffee-cta" href={donationUrl} target="_blank" rel="noopener noreferrer">
-          <span>Compre-me um café</span>
-          <small>Buy Me a Coffee</small>
-        </a>
       </section>
 
       <section class="catalog-section" id="catalogo" aria-labelledby="catalog-title">
@@ -395,8 +383,6 @@ const featuredSkills = skills.slice(0, 4);
           <a href={`${repository.url}/blob/main/INSTALL.md`} target="_blank" rel="noopener noreferrer">Instalação</a>
           <a href={`${repository.url}/blob/main/docs/codex.md`} target="_blank" rel="noopener noreferrer">Codex</a>
           <a href={`${repository.url}/blob/main/docs/claude.md`} target="_blank" rel="noopener noreferrer">Claude</a>
-          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href={donationUrl} target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
         </div>
       </div>
       <div class="footer-repo">

@@ -40,8 +40,8 @@ export const repository = {
 };
 
 export const installCommands = {
-  codex: "npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global",
-  claude: "npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global --agent claude-code",
+  codex: 'npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas',
+  claude: 'npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas',
   list: 'npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --list',
 };
 
@@ -59,8 +59,8 @@ export const categories: Array<{ id: 'all' | SkillCategory; label: string; descr
 
 const command = (skillName: string, agent = 'codex') =>
   agent === 'claude-code'
-    ? `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName} --global --agent claude-code`
-    : `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName} --global`;
+    ? `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName} --agent claude-code`
+    : `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName}`;
 
 export const skills: SkillItem[] = [
   {

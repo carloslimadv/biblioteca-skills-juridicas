@@ -3,7 +3,7 @@
 ## Instalação recomendada
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill '*' --global
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
 ```
 
 ## Como chamar uma skill
