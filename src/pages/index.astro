@@ -37,8 +37,6 @@ const featuredSkills = skills.slice(0, 4);
     <title>Biblioteca Skills Jurídicas</title>
   </head>
   <body>
-    <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
-
     <header class="topbar" aria-label="Cabeçalho principal">
       <a class="brand" href="#topo" aria-label="Biblioteca Skills Jurídicas">
         <span class="brand-mark" aria-hidden="true">§</span>
@@ -97,11 +95,6 @@ const featuredSkills = skills.slice(0, 4);
             <p class="hero-lead">
               Um conjunto público de {totalSkills} skills para ajudar no trabalho com petições, provas, contratos, jurisprudência, marketing jurídico, PDFs e revisão. Tudo explicado em linguagem simples, com comando para instalar e opção de baixar cada skill separadamente.
             </p>
-            <div class="hero-actions" aria-label="Ações principais">
-              <a class="button primary" href="#instalacao">Copiar comando</a>
-              <a class="button secondary" href="#catalogo">Explorar skills</a>
-              <a class="button ghost" href={`${repository.url}/tree/main/skills`} target="_blank" rel="noopener noreferrer">Pastas no GitHub</a>
-            </div>
           </div>
 
           <aside class="install-console" aria-label="Comando principal de instalação">
@@ -112,34 +105,6 @@ const featuredSkills = skills.slice(0, 4);
             <code>{installCommands.codex}</code>
             <button class="copy-button console-copy" type="button" data-copy={installCommands.codex}>Copiar comando</button>
           </aside>
-        </div>
-
-        <div class="hero-brief">
-          <figure class="evidence-image">
-            <img src={heroImage} alt="Documentos jurídicos sobre mesa de trabalho" loading="eager" decoding="async" />
-          </figure>
-          <dl class="brief-stats">
-            <div>
-              <dt>{totalSkills}</dt>
-              <dd>skills curadas</dd>
-            </div>
-            <div>
-              <dt>npx</dt>
-              <dd>sem conta npm</dd>
-            </div>
-            <div>
-              <dt>ZIP</dt>
-              <dd>download individual</dd>
-            </div>
-            <div>
-              <dt>MD</dt>
-              <dd>formato SKILL.md</dd>
-            </div>
-          </dl>
-          <div class="brief-note">
-            <span>uso esperado</span>
-            <p>Escolha a skill, entregue os documentos certos e revise a resposta antes de usar em cliente, processo, contrato ou publicação.</p>
-          </div>
         </div>
       </section>
 
