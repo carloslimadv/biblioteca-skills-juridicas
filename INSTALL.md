@@ -27,7 +27,7 @@ npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
 5. Use uma skill chamando pelo nome, por exemplo:
 
 ```text
-Use $peticao-completa para gerar uma petição completa em .docx a partir desta pasta de documentos.
+Use $peticao-final para gerar uma petição completa em .docx a partir desta pasta de documentos.
 ```
 
 ## Forçar Claude Code
@@ -41,7 +41,7 @@ npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --age
 Exemplo de uso no Claude:
 
 ```text
-/peticao-analyzer analise estes autos e entregue argumentos, pedidos, provas e pontos controvertidos.
+/analise-autos analise estes autos e entregue argumentos, pedidos, provas e pontos controvertidos.
 ```
 
 ## Instalar só uma skill
@@ -49,15 +49,15 @@ Exemplo de uso no Claude:
 Troque o nome da skill no comando:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill peticao-completa
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill peticao-final
 ```
 
 Outros exemplos:
 
 ```bash
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill jurisprudencia-miner
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill pesquisa-jurisprudencial
 npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill marketing-juridico --agent claude-code
-npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill contrato-analyzer-br
+npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill analise-contrato
 ```
 
 ## Ver a lista antes de instalar

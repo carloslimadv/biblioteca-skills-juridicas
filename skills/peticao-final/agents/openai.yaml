@@ -1,0 +1,4 @@
+interface:
+  display_name: "Petição Final"
+  short_description: "Petições jurídicas completas em DOCX"
+  default_prompt: "Use $peticao-final para gerar uma petição completa em .docx a partir da pasta de documentos do caso."

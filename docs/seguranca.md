@@ -22,9 +22,9 @@ Este repositório publica uma versão curada das skills.
 - autorização do cliente;
 - política da ferramenta de IA utilizada.
 
-## Petição Completa
+## Petição Final
 
-A skill `peticao-completa` inclui modelo DOCX, scripts e referências. Antes de usar no seu escritório, revise:
+A skill `peticao-final` inclui modelo DOCX, scripts e referências. Antes de usar no seu escritório, revise:
 
 - logotipo;
 - assinatura;

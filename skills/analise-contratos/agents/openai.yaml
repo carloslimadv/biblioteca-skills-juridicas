@@ -1,4 +1,0 @@
-interface:
-  display_name: "Contrato Analyzer BR"
-  short_description: "Analise de contratos com riscos, abusividades e falhas"
-  default_prompt: "Use $contrato-analyzer-br para analisar este contrato existente e apontar riscos, abusividades e falhas."

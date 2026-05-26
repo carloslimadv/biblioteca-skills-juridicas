@@ -57,13 +57,13 @@ Guia detalhado: [INSTALL.md](INSTALL.md).
 
 | Skill | Função principal |
 | --- | --- |
-| [`peticao-completa`](skills/peticao-completa/) | Redigir ou adaptar petições completas em DOCX, com leitura de documentos e revisão final. |
-| [`peticao-analyzer`](skills/peticao-analyzer/) | Analisar peças, autos, documentos, argumentos, pedidos e provas. |
-| [`revisao-senior-peticao`](skills/revisao-senior-peticao/) | Revisar peça pronta antes do protocolo, com veredicto e pendências por gravidade. |
-| [`analise-probatoria`](skills/analise-probatoria/) | Valorar documentos, força probatória, lacunas e risco adversarial. |
-| [`contrato-analyzer-br`](skills/analise-contratos/) | Auditar contratos brasileiros existentes. |
-| [`jurisprudencia-miner`](skills/jurisprudencia-miner/) | Pesquisar, validar e classificar jurisprudência em fonte confiável. |
-| [`tese-juridica-validator`](skills/tese-juridica-validator/) | Testar solidez de teses, argumentos e estratégias processuais. |
+| [`peticao-final`](skills/peticao-final/) | Redigir ou adaptar petições completas em DOCX, com leitura de documentos e revisão final. |
+| [`analise-autos`](skills/analise-autos/) | Analisar peças, autos, documentos, argumentos, pedidos e provas. |
+| [`revisao-peticao`](skills/revisao-peticao/) | Revisar peça pronta antes do protocolo, com veredicto e pendências por gravidade. |
+| [`analise-provas`](skills/analise-provas/) | Valorar documentos, força probatória, lacunas e risco adversarial. |
+| [`analise-contrato`](skills/analise-contrato/) | Auditar contratos brasileiros existentes. |
+| [`pesquisa-jurisprudencial`](skills/pesquisa-jurisprudencial/) | Pesquisar, validar e classificar jurisprudência em fonte confiável. |
+| [`validar-tese`](skills/validar-tese/) | Testar solidez de teses, argumentos e estratégias processuais. |
 | [`marketing-juridico`](skills/marketing-juridico/) | Criar e revisar marketing jurídico com filtro OAB/LGPD. |
 | [`pdf`](skills/pdf/) | Ler, criar e revisar PDFs quando layout importa. |
 | [`session-handoff`](skills/session-handoff/) | Gerar handoff Markdown para retomar trabalho em outra sessão. |

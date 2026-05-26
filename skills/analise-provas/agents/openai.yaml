@@ -1,0 +1,4 @@
+interface:
+  display_name: "Análise de Provas"
+  short_description: "Valora provas, lacunas e riscos"
+  default_prompt: "Use $analise-provas para avaliar estes documentos e montar a estratégia probatória."

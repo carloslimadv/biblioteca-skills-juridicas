@@ -17,11 +17,11 @@ npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --age
 Dependendo da configuração, você pode chamar a skill pelo nome ou pedir explicitamente:
 
 ```text
-/peticao-analyzer analise estes autos e entregue pedidos, provas, defesas e pontos controvertidos.
+/analise-autos analise estes autos e entregue pedidos, provas, defesas e pontos controvertidos.
 ```
 
 ```text
-Use a skill jurisprudencia-miner para pesquisar precedentes oficiais sobre esta tese.
+Use a skill pesquisa-jurisprudencial para pesquisar precedentes oficiais sobre esta tese.
 ```
 
 ## Compatibilidade

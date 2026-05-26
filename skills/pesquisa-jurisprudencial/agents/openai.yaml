@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pesquisa Jurisprudencial"
+  short_description: "Pesquisa e validacao de precedentes brasileiros"
+  default_prompt: "Use $pesquisa-jurisprudencial para localizar, validar e comparar precedentes sobre este tema."

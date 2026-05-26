@@ -11,11 +11,11 @@ npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas
 Use o gatilho da própria skill:
 
 ```text
-Use $peticao-completa para gerar uma petição completa em .docx a partir da pasta de documentos do caso.
+Use $peticao-final para gerar uma petição completa em .docx a partir da pasta de documentos do caso.
 ```
 
 ```text
-Use $jurisprudencia-miner para localizar, validar e comparar precedentes sobre este tema.
+Use $pesquisa-jurisprudencial para localizar, validar e comparar precedentes sobre este tema.
 ```
 
 ```text
@@ -36,7 +36,7 @@ Forneça:
 Exemplo:
 
 ```text
-Use $analise-probatoria. Analise os PDFs desta pasta, monte matriz documento -> fato provado -> força -> risco e pare se algum arquivo estiver ilegível.
+Use $analise-provas. Analise os PDFs desta pasta, monte matriz documento -> fato provado -> força -> risco e pare se algum arquivo estiver ilegível.
 ```
 
 ## Cuidados
