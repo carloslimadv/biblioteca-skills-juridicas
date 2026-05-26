@@ -11,7 +11,7 @@ Executar leitura juridica dos documentos antes de redigir a peca. Tratar prova c
 
 ## Coordenacao com o stack atual
 
-- Se os arquivos estiverem em `.pdf`, usar tambem a skill `pdf` para leitura, OCR ou extracao.
+- Se os arquivos estiverem em `.pdf`, usar ferramentas locais de leitura, OCR ou extracao quando necessario.
 - Se os arquivos estiverem em `.docx`, usar tambem a skill `doc` para leitura estruturada.
 - Se a analise probatoria precisar ser convertida em peca, migrar depois para `peticao-final`.
 
@@ -88,4 +88,4 @@ PARECER PROBATORIO
 - [ordem recomendada e forma de ancoragem na peca]
 ```
 
-Se o usuario pedir proxima etapa, encaminhar para `peticao-final`, `pdf` ou `doc`, conforme o caso.
+Se o usuario pedir proxima etapa, encaminhar para `peticao-final` ou ferramenta documental adequada, conforme o caso.

@@ -4,11 +4,9 @@ export type SkillCategory =
   | 'contratos'
   | 'jurisprudencia'
   | 'marketing'
-  | 'documentos'
-  | 'produtividade'
-  | 'qa';
+  | 'produtividade';
 
-export type SkillRisk = 'juridico' | 'documental' | 'operacional' | 'baixo';
+export type SkillRisk = 'juridico' | 'operacional' | 'baixo';
 
 export type SkillItem = {
   id: string;
@@ -52,9 +50,7 @@ export const categories: Array<{ id: 'all' | SkillCategory; label: string; descr
   { id: 'contratos', label: 'Contratos', description: 'Risco contratual' },
   { id: 'jurisprudencia', label: 'Jurisprudência', description: 'Pesquisa e validação' },
   { id: 'marketing', label: 'Marketing', description: 'OAB, LGPD e conteúdo' },
-  { id: 'documentos', label: 'Documentos', description: 'PDF e arquivos' },
   { id: 'produtividade', label: 'Produtividade', description: 'Handoff e descoberta' },
-  { id: 'qa', label: 'QA técnico', description: 'Browser e validação visual' },
 ];
 
 const command = (skillName: string, agent = 'codex') =>
@@ -232,27 +228,6 @@ export const skills: SkillItem[] = [
     files: ['SKILL.md', 'references/'],
   },
   {
-    id: 'pdf',
-    folder: 'pdf',
-    name: 'pdf',
-    title: 'PDF Skill',
-    category: 'documentos',
-    categoryLabel: 'Documentos',
-    risk: 'documental',
-    summary: 'Lê, cria e revisa PDFs quando extração, renderização e layout importam.',
-    serves: 'Evitar confiar apenas em texto extraído quando o visual do PDF pode alterar a conclusão.',
-    whenToUse: ['PDFs escaneados ou com layout relevante', 'geração de PDF programática', 'validação visual de documentos finais'],
-    whenNotToUse: ['quando um texto simples basta', 'quando não há dependência instalada e o usuário não pode revisar localmente', 'para substituir OCR ou perícia quando necessária'],
-    howItWorks: ['prefere renderizar páginas em imagem', 'usa bibliotecas de PDF para extração e geração', 'valida alinhamento, legibilidade e cortes'],
-    bestUse: 'Peça leitura ou geração de PDF com checagem visual. Quando possível, renderize páginas antes de concluir.',
-    trigger: '$pdf',
-    installCommand: command('pdf'),
-    codexPrompt: 'Use $pdf para criar, revisar ou extrair informacoes deste PDF com checagem visual.',
-    claudePrompt: '/pdf revise este PDF considerando texto e layout.',
-    limitations: ['pode exigir Poppler, OCR ou bibliotecas Python', 'texto extraído não garante fidelidade visual', 'arquivos protegidos podem impedir leitura completa'],
-    files: ['SKILL.md', 'assets/pdf.png'],
-  },
-  {
     id: 'session-handoff',
     folder: 'session-handoff',
     name: 'session-handoff',
@@ -293,27 +268,6 @@ export const skills: SkillItem[] = [
     claudePrompt: '/find-skills encontre skills confiáveis para esta necessidade.',
     limitations: ['não garante segurança de terceiros', 'popularidade não equivale a adequação jurídica', 'instalação deve ser decisão consciente'],
     files: ['SKILL.md'],
-  },
-  {
-    id: 'playwright-interactive',
-    folder: 'playwright-interactive',
-    name: 'playwright-interactive',
-    title: 'Playwright Interactive',
-    category: 'qa',
-    categoryLabel: 'QA técnico',
-    risk: 'operacional',
-    summary: 'Mantém sessão Playwright persistente para depurar sites, apps locais e interfaces Electron com evidência funcional e visual.',
-    serves: 'Fazer QA real em interface, evitando afirmar que uma tela funciona sem abrir, clicar, testar estados e capturar evidência.',
-    whenToUse: ['landing pages, apps web, Electron e fluxos interativos', 'após mudança visual relevante', 'quando é preciso verificar desktop e mobile'],
-    whenNotToUse: ['quando não há ambiente local executável', 'para tarefas jurídicas sem interface', 'quando a ferramenta Playwright não está disponível'],
-    howItWorks: ['define inventário de QA', 'abre runtime persistente', 'testa controles e estados', 'faz checagem visual e responsiva'],
-    bestUse: 'Rode depois de implementar página ou app. Liste as afirmações que quer assinar e teste cada uma no navegador.',
-    trigger: '$playwright-interactive',
-    installCommand: command('playwright-interactive'),
-    codexPrompt: 'Use $playwright-interactive to debug a local web or Electron app in a persistent Playwright session and capture the QA evidence.',
-    claudePrompt: '/playwright-interactive abra a aplicação local, teste os fluxos e capture evidências visuais.',
-    limitations: ['exige Playwright e runtime compatível', 'pode precisar de servidor local', 'não substitui testes automatizados de longo prazo'],
-    files: ['SKILL.md', 'assets/'],
   },
 ];
 

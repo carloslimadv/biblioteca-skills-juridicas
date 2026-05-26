@@ -2,10 +2,10 @@
 
 [![Astro](https://img.shields.io/badge/Astro-6-1b1b1b?style=flat-square)](https://astro.build/)
 [![GitHub Pages](https://img.shields.io/badge/deploy-GitHub%20Pages-123c31?style=flat-square)](https://carloslimadv.github.io/biblioteca-skills-juridicas/)
-[![Skills](https://img.shields.io/badge/skills-12-9a5a2e?style=flat-square)](skills/)
+[![Skills](https://img.shields.io/badge/skills-10-9a5a2e?style=flat-square)](skills/)
 [![pt-BR](https://img.shields.io/badge/idioma-pt--BR-2f6f59?style=flat-square)](#)
 
-Biblioteca pública com 12 skills jurídicas para Codex, Claude Code e outras LLMs compatíveis com instruções em Markdown. O projeto foi pensado para advogados que querem transformar rotinas recorrentes em métodos instaláveis, sem perder revisão humana, sigilo, LGPD, ética profissional e controle das fontes.
+Biblioteca pública com 10 skills jurídicas para Codex, Claude Code e outras LLMs compatíveis com instruções em Markdown. O projeto foi pensado para advogados que querem transformar rotinas recorrentes em métodos instaláveis, sem perder revisão humana, sigilo, LGPD, ética profissional e controle das fontes.
 
 **Página pública:** [carloslimadv.github.io/biblioteca-skills-juridicas](https://carloslimadv.github.io/biblioteca-skills-juridicas/)
 
@@ -27,7 +27,7 @@ Na prática, esta biblioteca ajuda a:
 - pesquisar e validar jurisprudência;
 - testar teses jurídicas antes de usar em peça;
 - criar marketing jurídico com filtro OAB/LGPD;
-- trabalhar melhor com PDFs, handoffs e QA visual.
+- registrar handoffs e descobrir skills complementares.
 
 ## Instalação rápida
 
@@ -65,10 +65,8 @@ Guia detalhado: [INSTALL.md](INSTALL.md).
 | [`pesquisa-jurisprudencial`](skills/pesquisa-jurisprudencial/) | Pesquisar, validar e classificar jurisprudência em fonte confiável. |
 | [`validar-tese`](skills/validar-tese/) | Testar solidez de teses, argumentos e estratégias processuais. |
 | [`marketing-juridico`](skills/marketing-juridico/) | Criar e revisar marketing jurídico com filtro OAB/LGPD. |
-| [`pdf`](skills/pdf/) | Ler, criar e revisar PDFs quando layout importa. |
 | [`session-handoff`](skills/session-handoff/) | Gerar handoff Markdown para retomar trabalho em outra sessão. |
 | [`find-skills`](skills/find-skills/) | Descobrir e avaliar outras skills. |
-| [`playwright-interactive`](skills/playwright-interactive/) | Testar interfaces locais com Playwright persistente. |
 
 Cada pasta em [`skills/`](skills/) pode ser baixada, lida e adaptada individualmente.
 

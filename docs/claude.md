@@ -26,7 +26,7 @@ Use a skill pesquisa-jurisprudencial para pesquisar precedentes oficiais sobre e
 
 ## Compatibilidade
 
-As skills são arquivos Markdown com instruções, referências e, em alguns casos, scripts ou assets. O conteúdo principal pode ser lido por outras LLMs, mas a execução de arquivos, comandos locais, DOCX, PDF ou Playwright depende das permissões e ferramentas do ambiente.
+As skills são arquivos Markdown com instruções, referências e, em alguns casos, scripts ou assets. O conteúdo principal pode ser lido por outras LLMs, mas a execução de arquivos, comandos locais ou DOCX depende das permissões e ferramentas do ambiente.
 
 ## Instalação manual
 

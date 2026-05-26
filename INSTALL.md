@@ -76,7 +76,7 @@ Se a sua ferramenta não suporta instalação automática por `npx skills`, voc�
 4. Cole como instrução persistente, projeto, system prompt ou contexto do agente.
 5. Se a skill tiver `references/`, `assets/` ou `scripts/`, copie também os arquivos necessários.
 
-Essa forma funciona melhor em tarefas textuais. Skills que usam scripts, DOCX, PDF ou Playwright dependem da ferramenta permitir acesso a arquivos e comandos locais.
+Essa forma funciona melhor em tarefas textuais. Skills que usam scripts, DOCX ou outros arquivos auxiliares dependem da ferramenta permitir acesso a arquivos e comandos locais.
 
 ## Por que não há um CLI próprio neste v1
 
@@ -102,9 +102,9 @@ Instale o Node.js em https://nodejs.org/ e tente novamente.
 
 Feche e abra uma nova sessão do Codex ou Claude Code. Algumas ferramentas carregam skills apenas no início da sessão.
 
-### Uma skill com PDF ou DOCX falhou
+### Uma skill com DOCX ou arquivo auxiliar falhou
 
-Algumas rotinas dependem de ferramentas locais, como Python, Poppler, OCR ou LibreOffice. Leia o `SKILL.md` da skill para ver dependências.
+Algumas rotinas dependem de ferramentas locais, como Python, OCR ou LibreOffice. Leia o `SKILL.md` da skill para ver dependências.
 
 ### Quero adaptar para meu escritório
 

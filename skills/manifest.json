@@ -16,9 +16,7 @@
     { "name": "pesquisa-jurisprudencial", "folder": "pesquisa-jurisprudencial", "category": "jurisprudencia" },
     { "name": "validar-tese", "folder": "validar-tese", "category": "jurisprudencia" },
     { "name": "marketing-juridico", "folder": "marketing-juridico", "category": "marketing" },
-    { "name": "pdf", "folder": "pdf", "category": "documentos" },
     { "name": "session-handoff", "folder": "session-handoff", "category": "produtividade" },
-    { "name": "find-skills", "folder": "find-skills", "category": "produtividade" },
-    { "name": "playwright-interactive", "folder": "playwright-interactive", "category": "qa" }
+    { "name": "find-skills", "folder": "find-skills", "category": "produtividade" }
   ]
 }
