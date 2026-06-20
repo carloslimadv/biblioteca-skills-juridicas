@@ -5,12 +5,13 @@ from __future__ import annotations
 
 import argparse
 import collections
+import os
 import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CORPUS = Path("/Users/henrique/Library/Mobile Documents/com~apple~CloudDocs/Advocacia/6. Modelos de peças/00_Cerebro de Peticoes/Peticoes markdown")
+DEFAULT_CORPUS = Path(os.getenv("PETICAO_CORPUS_DIR", ROOT / "corpus"))
 DEFAULT_OUTPUT = ROOT / "references" / "sintese-cerebro.md"
 
 HEADING_RE = re.compile(r"^(?:#+\s*)?(?:\*\*)?([A-ZÁÀÂÃÉÊÍÓÔÕÚÇ0-9ºª .,/():-]{5,})(?:\*\*)?\s*$")
