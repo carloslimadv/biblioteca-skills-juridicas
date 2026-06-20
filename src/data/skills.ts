@@ -53,7 +53,7 @@ export const categories: Array<{ id: 'all' | SkillCategory; label: string; descr
   { id: 'produtividade', label: 'Produtividade', description: 'Handoff e descoberta' },
 ];
 
-const command = (skillName: string, agent = 'codex') =>
+export const command = (skillName: string, agent = 'codex') =>
   agent === 'claude-code'
     ? `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName} --agent claude-code`
     : `npx skills add https://github.com/carloslimadv/biblioteca-skills-juridicas --skill ${skillName}`;
