@@ -56,7 +56,11 @@ def iter_files(folder: Path) -> list[Path]:
 
 def extract_text_file(path: Path, limit: int) -> Extracted:
     try:
-        text = path.read_text(encoding="utf-8", errors="ignore")
+        # Read with an explicit limit to avoid unbounded file reads leading to memory exhaustion
+        # We read limit * 10 or 1MB, whichever is larger, to ensure `clipped` gets enough useful text
+        read_size = max(limit * 10, 1024 * 1024)
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            text = f.read(read_size)
         return Extracted(path, "texto", "read_text", len(text), clipped(text, limit))
     except Exception as exc:
         return Extracted(path, "texto", "read_text", 0, "", str(exc))
