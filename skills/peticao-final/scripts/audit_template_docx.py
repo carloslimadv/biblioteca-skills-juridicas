@@ -5,8 +5,9 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from xml.etree import ElementTree as ET
 from zipfile import ZipFile
+
+from defusedxml import ElementTree as ET
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
