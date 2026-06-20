@@ -28,7 +28,7 @@ def classify(path: Path) -> str:
 def year_key(path: Path) -> int:
     try:
         return int(path.parts[-2])
-    except Exception:
+    except (ValueError, IndexError):
         return 0
 
 
